@@ -37,10 +37,24 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_bloc: ^8.1.2
   flutter_screenutil:
+  dots_indicator:
+  intl:
+  cloud_firestore: ^4.7.1
+  google_fonts:
+  iconify_flutter:
+  firebase_auth: ^4.2.2
+  awesome_snackbar_content:
+  animated_snack_bar:
+  shared_preferences:
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+  flutter_launcher_icons: ^0.13.1
+flutter_icons:
+  image_path: 'assets/images/1024.png'
+  android: false
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -61,7 +75,10 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
+  assets:
+    - assets/
+    - assets/images/
+
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
