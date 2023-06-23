@@ -25,10 +25,11 @@ class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
+      top: false,
       child: Scaffold(
         backgroundColor: white,
         body: SingleChildScrollView(
-          padding: EdgeInsets.symmetric(vertical: 15.h,horizontal: 16.w),
+          padding: EdgeInsets.symmetric(vertical: 50.h,horizontal: 16.w),
           child: Align(
             child: Column(
               children: [

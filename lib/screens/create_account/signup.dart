@@ -26,176 +26,177 @@ class _SignUpState extends State<SignUp> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return  SafeArea(
+      top: false,
       child: Scaffold(
-        backgroundColor: white,
-        body: SingleChildScrollView(
-          padding: EdgeInsets.symmetric(vertical: 1.h, horizontal: 16.w),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Iconify(
-                Mdi.register,
-                color: primary900,
-                size: 50,
-              ),
-              Text(
-                'Sign Up',
-                style: TextStyle(
-                  fontSize: 24.sp,
+          backgroundColor: white,
+          body: SingleChildScrollView(
+            padding: EdgeInsets.symmetric(vertical: 50.h, horizontal: 16.w),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Iconify(
+                  Mdi.register,
                   color: primary900,
-                  fontWeight: FontWeight.bold,
+                  size: 50,
                 ),
-              ),
-              SizedBox(
-                height: 25.h,
-              ),
-              buildTextFormField(
-                  IconParkSolid.edit_name, 'name', false, 'Username', false,
-                      (value){
-                    context.read<SignUpBlocs>().add(UserNameEvent(value));
-                  }
-              ),
-              SizedBox(
-                height: 20.h,
-              ),
-              buildTextFormField(MaterialSymbols.mark_email_unread, 'email',
-                  false, 'Email', false,  (value){
-                    context.read<SignUpBlocs>().add(EmailEvent(value));
-                  }),
-              SizedBox(
-                height: 20.h,
-              ),
-              buildTextFormField(
-                  Mdi.forgot_password, 'password', false, 'Password', password,
-                      (value){
-                    context.read<SignUpBlocs>().add(PasswordEvent(value));
-                  }
-              ),
-              SizedBox(
-                height: 20.h,
-              ),
-              buildTextFormField(Mdi.password_check, 'confirmPassword', false,
-                  'Confirm Password', confirmPassword,(value){
-                    context.read<SignUpBlocs>().add(ConfirmPasswordEvent(value));
-                  }),
-              SizedBox(
-                height: 25.h,
-              ),
-              Text(
-                '*By creating an account, you have agreed to our terms and conditions.*',
-                style: TextStyle(fontStyle: FontStyle.italic, color: primary900),
-              ),
-              SizedBox(
-                height: 25.h,
-              ),
-              GestureDetector(
-                onTap:  (){
-                  SignUpController(context: context).handleEmailRegister();
-                  },
-                child: Container(
-                  width: 345.w,
-                  height: 50.h,
-                  alignment: Alignment.center,
-                  padding: const EdgeInsets.all(16),
-                  decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                          colors: [primary800, primary300],
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight),
-                      borderRadius: BorderRadius.circular(10.0)),
-                  child: Text(
-                    'Create Account',
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold, fontSize: 16.sp, color: white),
+                Text(
+                  'Sign Up',
+                  style: TextStyle(
+                    fontSize: 24.sp,
+                    color: primary900,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-              ),
-              SizedBox(
-                height: 2.h,
-              ),
-              Text('or',style: TextStyle(fontSize:16.sp),),
-              SizedBox(
-                height: 2.h,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  GestureDetector(
-                    onTap:  (){
+                SizedBox(
+                  height: 25.h,
+                ),
+                buildTextFormField(
+                    IconParkSolid.edit_name, 'name', false, 'Username', false,
+                        (value){
+                      context.read<SignUpBlocs>().add(UserNameEvent(value));
+                    }
+                ),
+                SizedBox(
+                  height: 20.h,
+                ),
+                buildTextFormField(MaterialSymbols.mark_email_unread, 'email',
+                    false, 'Email', false,  (value){
+                      context.read<SignUpBlocs>().add(EmailEvent(value));
+                    }),
+                SizedBox(
+                  height: 20.h,
+                ),
+                buildTextFormField(
+                    Mdi.forgot_password, 'password', false, 'Password', password,
+                        (value){
+                      context.read<SignUpBlocs>().add(PasswordEvent(value));
+                    }
+                ),
+                SizedBox(
+                  height: 20.h,
+                ),
+                buildTextFormField(Mdi.password_check, 'confirmPassword', false,
+                    'Confirm Password', confirmPassword,(value){
+                      context.read<SignUpBlocs>().add(ConfirmPasswordEvent(value));
+                    }),
+                SizedBox(
+                  height: 25.h,
+                ),
+                Text(
+                  '*By creating an account, you have agreed to our terms and conditions.*',
+                  style: TextStyle(fontStyle: FontStyle.italic, color: primary900),
+                ),
+                SizedBox(
+                  height: 25.h,
+                ),
+                GestureDetector(
+                  onTap:  (){
+                    SignUpController(context: context).handleEmailRegister();
                     },
-                    child: Container(
-                      width: 150.w,
-                      height: 50.h,
-                      alignment: Alignment.center,
-                      padding: const EdgeInsets.all(16),
-                      decoration: BoxDecoration(
-                          image:  DecorationImage(
-                            image: AssetImage(
-                                'assets/images/google logo.jpg'),
-                          ),
-                          borderRadius: BorderRadius.circular(10.0)),
-
+                  child: Container(
+                    width: 345.w,
+                    height: 50.h,
+                    alignment: Alignment.center,
+                    padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                            colors: [primary800, primary300],
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight),
+                        borderRadius: BorderRadius.circular(10.0)),
+                    child: Text(
+                      'Create Account',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 16.sp, color: white),
                     ),
                   ),
-                  GestureDetector(
-                    onTap:  (){
-                    },
-                    child: Container(
-                      width: 100.w,
-                      height: 50.h,
-                      alignment: Alignment.center,
-                      padding: const EdgeInsets.all(16),
-                      decoration: BoxDecoration(
-                          image: DecorationImage(image: AssetImage('assets/images/Facebook-logo.png')),
-                          borderRadius: BorderRadius.circular(50.0)),
-
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 25.h,
-              ),
-              Container(
-                  height: 1.0,
-                  decoration: BoxDecoration(color: primary900, boxShadow: [
-                    BoxShadow(
-                        color: primary800,
-                        blurRadius: 8,
-                        offset: const Offset(0, 4))
-                  ])),
-              SizedBox(
-                height: 25.h,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'Already have an account?',
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: primary900,
-                      fontWeight: FontWeight.w300,
-                    ),
-                  ),
-                  TextButton(
-                      onPressed: () {
-                        Navigator.of(context).pushNamed("/signIn");
+                ),
+                SizedBox(
+                  height: 2.h,
+                ),
+                Text('or',style: TextStyle(fontSize:16.sp),),
+                SizedBox(
+                  height: 2.h,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    GestureDetector(
+                      onTap:  (){
                       },
-                      child: Text(
-                        'Sign-in',
-                        style: TextStyle(
-                            fontSize: 16,
-                            color: primary300,
-                            fontWeight: FontWeight.bold,
-                            decoration: TextDecoration.underline),
-                      ))
-                ],
-              ),
-            ],
+                      child: Container(
+                        width: 150.w,
+                        height: 50.h,
+                        alignment: Alignment.center,
+                        padding: const EdgeInsets.all(16),
+                        decoration: BoxDecoration(
+                            image:  DecorationImage(
+                              image: AssetImage(
+                                  'assets/images/google logo.jpg'),
+                            ),
+                            borderRadius: BorderRadius.circular(10.0)),
+
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap:  (){
+                      },
+                      child: Container(
+                        width: 100.w,
+                        height: 50.h,
+                        alignment: Alignment.center,
+                        padding: const EdgeInsets.all(16),
+                        decoration: BoxDecoration(
+                            image: DecorationImage(image: AssetImage('assets/images/Facebook-logo.png')),
+                            borderRadius: BorderRadius.circular(50.0)),
+
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 25.h,
+                ),
+                Container(
+                    height: 1.0,
+                    decoration: BoxDecoration(color: primary900, boxShadow: [
+                      BoxShadow(
+                          color: primary800,
+                          blurRadius: 8,
+                          offset: const Offset(0, 4))
+                    ])),
+                SizedBox(
+                  height: 25.h,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Already have an account?',
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: primary900,
+                        fontWeight: FontWeight.w300,
+                      ),
+                    ),
+                    TextButton(
+                        onPressed: () {
+                          Navigator.of(context).pushNamed("/signIn");
+                        },
+                        child: Text(
+                          'Sign-in',
+                          style: TextStyle(
+                              fontSize: 16,
+                              color: primary300,
+                              fontWeight: FontWeight.bold,
+                              decoration: TextDecoration.underline),
+                        ))
+                  ],
+                ),
+              ],
+            ),
           ),
-        ),
       ),
     );
   }

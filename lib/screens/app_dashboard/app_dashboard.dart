@@ -28,6 +28,7 @@ class _AppDashboardState extends State<AppDashboard> {
     return BlocBuilder<AppBlocs,AppStates>(
       builder: (BuildContext context, state) {
       return SafeArea(
+        top: false,
         child: Scaffold(
           key:  scaffoldKey,
           drawer:  Drawer(
