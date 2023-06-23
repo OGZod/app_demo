@@ -1,6 +1,9 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:iconify_flutter/iconify_flutter.dart';
+import 'package:iconify_flutter/icons/material_symbols.dart';
 import 'package:untitled/values/colors.dart';
 
 import 'chat/chat_screen.dart';
@@ -16,6 +19,278 @@ Widget buildPage(int index){
     const HowToScreen(),
   ];
   return widget[index];
+}
+
+PreferredSizeWidget buildPageAppBar(int appBarIndex, VoidCallback onTap ,BuildContext context){
+
+  List<PreferredSizeWidget> widget = [
+     AppBar(
+         backgroundColor: white,
+        leading:  GestureDetector(
+          onTap: onTap,
+          child: Padding(
+            padding: const EdgeInsets.only(left: 16.0),
+            child: CircleAvatar(
+              backgroundImage:AssetImage('assets/images/1024.png'),
+            ),
+          ),
+        ),
+        elevation: 0,
+        bottom: PreferredSize(child: Container(color: grey100,height: 1.h,),
+          preferredSize: Size.fromHeight(1.h),),
+        title: Padding(
+            padding:  EdgeInsets.only(top: 10.h,bottom: 10.h),
+            child: Row(
+                children: [
+                  Container(
+                    padding: EdgeInsets.all(10),
+                    width: 270.w,
+                    height: 40.h,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: primary50,
+                    ),
+                    child:  TextFormField(
+                        onChanged: (value){},
+                        decoration: InputDecoration(
+                            contentPadding: EdgeInsets.fromLTRB(0, 5, 0, 5),
+                            filled: true,
+                            fillColor: Colors.transparent,
+                            hintText: 'Search Menu',
+                            hintStyle: TextStyle(fontSize: 16.sp,
+                                fontWeight: FontWeight.bold),
+                            prefixIcon: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: 0, horizontal: 0),
+                              child: Iconify(
+                                MaterialSymbols.search,
+                                color: grey300,
+                              ),
+                            ),
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide.none,
+                            )
+                        )
+                    ),
+                  ),
+                ])
+
+        )
+    ),
+     AppBar(
+        leading:  GestureDetector(
+          onTap: onTap,
+          child: Padding(
+            padding: const EdgeInsets.only(left: 16.0),
+            child: CircleAvatar(
+              backgroundImage:AssetImage('assets/images/1024.png'),
+            ),
+          ),
+        ),
+        backgroundColor: white,
+        elevation: 0,
+        bottom: PreferredSize(child: Container(color: grey100,height: 1.h,),
+          preferredSize: Size.fromHeight(1.h),),
+        title: Padding(
+            padding:  EdgeInsets.only(top: 10.h,bottom: 10.h),
+            child: Row(
+                children: [
+                  Container(
+                    padding: EdgeInsets.all(10),
+                    width: 270.w,
+                    height: 40.h,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: primary50,
+                    ),
+                    child:  TextFormField(
+                        onChanged: (value){},
+                        decoration: InputDecoration(
+                            contentPadding: EdgeInsets.fromLTRB(0, 5, 0, 5),
+                            filled: true,
+                            fillColor: Colors.transparent,
+                            hintText: 'Search Menu',
+                            hintStyle: TextStyle(fontSize: 16.sp,
+                                fontWeight: FontWeight.bold),
+                            prefixIcon: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: 0, horizontal: 0),
+                              child: Iconify(
+                                MaterialSymbols.search,
+                                color: grey300,
+                              ),
+                            ),
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide.none,
+                            )
+                        )
+                    ),
+                  ),
+                ])
+
+        )
+    ),
+     AppBar(
+        leading:  GestureDetector(
+          onTap: onTap,
+          child: Padding(
+            padding: const EdgeInsets.only(left: 16.0),
+            child: CircleAvatar(
+              backgroundImage:AssetImage('assets/images/1024.png'),
+            ),
+          ),
+        ),
+        backgroundColor: white,
+        elevation: 0,
+        bottom: PreferredSize(child: Container(color: grey100,height: 1.h,),
+          preferredSize: Size.fromHeight(1.h),),
+        title: Padding(
+            padding:  EdgeInsets.only(top: 10.h,bottom: 10.h),
+            child: Row(
+                children: [
+                  Container(
+                    padding: EdgeInsets.all(10),
+                    width: 270.w,
+                    height: 40.h,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: primary50,
+                    ),
+                    child:  TextFormField(
+                        onChanged: (value){},
+                        decoration: InputDecoration(
+                            contentPadding: EdgeInsets.fromLTRB(0, 5, 0, 5),
+                            filled: true,
+                            fillColor: Colors.transparent,
+                            hintText: 'Search Menu',
+                            hintStyle: TextStyle(fontSize: 16.sp,
+                                fontWeight: FontWeight.bold),
+                            prefixIcon: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: 0, horizontal: 0),
+                              child: Iconify(
+                                MaterialSymbols.search,
+                                color: grey300,
+                              ),
+                            ),
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide.none,
+                            )
+                        )
+                    ),
+                  ),
+                ])
+
+        )
+    ),
+     AppBar(
+        leading:  GestureDetector(
+          onTap: onTap,
+          child: Padding(
+            padding: const EdgeInsets.only(left: 16.0),
+            child: CircleAvatar(
+              backgroundImage:AssetImage('assets/images/1024.png'),
+            ),
+          ),
+        ),
+        backgroundColor: white,
+        elevation: 0,
+        bottom: PreferredSize(child: Container(color: grey100,height: 1.h,),
+          preferredSize: Size.fromHeight(1.h),),
+        title: Padding(
+            padding:  EdgeInsets.only(top: 10.h,bottom: 10.h),
+            child: Row(
+                children: [
+                  Container(
+                    padding: EdgeInsets.all(10),
+                    width: 270.w,
+                    height: 40.h,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: primary50,
+                    ),
+                    child:  TextFormField(
+                        onChanged: (value){},
+                        decoration: InputDecoration(
+                            contentPadding: EdgeInsets.fromLTRB(0, 5, 0, 5),
+                            filled: true,
+                            fillColor: Colors.transparent,
+                            hintText: 'Search Menu',
+                            hintStyle: TextStyle(fontSize: 16.sp,
+                                fontWeight: FontWeight.bold),
+                            prefixIcon: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: 0, horizontal: 0),
+                              child: Iconify(
+                                MaterialSymbols.search,
+                                color: grey300,
+                              ),
+                            ),
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide.none,
+                            )
+                        )
+                    ),
+                  ),
+                ])
+
+        )
+    ),
+     AppBar(
+        leading:  GestureDetector(
+          onTap: onTap,
+          child: Padding(
+            padding: const EdgeInsets.only(left: 16.0),
+            child: CircleAvatar(
+              backgroundImage:AssetImage('assets/images/1024.png'),
+            ),
+          ),
+        ),
+        backgroundColor: white,
+        elevation: 0,
+        bottom: PreferredSize(child: Container(color: grey100,height: 1.h,),
+          preferredSize: Size.fromHeight(1.h),),
+        title: Padding(
+            padding:  EdgeInsets.only(top: 10.h,bottom: 10.h),
+            child: Row(
+                children: [
+                  Container(
+                    padding: EdgeInsets.all(10),
+                    width: 270.w,
+                    height: 40.h,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: primary50,
+                    ),
+                    child:  TextFormField(
+                        onChanged: (value){},
+                        decoration: InputDecoration(
+                            contentPadding: EdgeInsets.fromLTRB(0, 5, 0, 5),
+                            filled: true,
+                            fillColor: Colors.transparent,
+                            hintText: 'Search Menu',
+                            hintStyle: TextStyle(fontSize: 16.sp,
+                                fontWeight: FontWeight.bold),
+                            prefixIcon: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: 0, horizontal: 0),
+                              child: Iconify(
+                                MaterialSymbols.search,
+                                color: grey300,
+                              ),
+                            ),
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide.none,
+                            )
+                        )
+                    ),
+                  ),
+                ])
+
+        )
+    ),
+  ];
+  return widget[appBarIndex];
 }
 
 class TextWidget extends StatelessWidget {

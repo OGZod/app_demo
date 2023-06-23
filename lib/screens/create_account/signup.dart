@@ -37,10 +37,7 @@ class _SignUpState extends State<SignUp> {
               Iconify(
                 Mdi.register,
                 color: primary900,
-                size: 75,
-              ),
-              SizedBox(
-                height: 5.h,
+                size: 50,
               ),
               Text(
                 'Sign Up',
@@ -51,7 +48,7 @@ class _SignUpState extends State<SignUp> {
                 ),
               ),
               SizedBox(
-                height: 50.h,
+                height: 25.h,
               ),
               buildTextFormField(
                   IconParkSolid.edit_name, 'name', false, 'Username', false,
@@ -60,14 +57,14 @@ class _SignUpState extends State<SignUp> {
                   }
               ),
               SizedBox(
-                height: 25.h,
+                height: 20.h,
               ),
               buildTextFormField(MaterialSymbols.mark_email_unread, 'email',
                   false, 'Email', false,  (value){
                     context.read<SignUpBlocs>().add(EmailEvent(value));
                   }),
               SizedBox(
-                height: 25.h,
+                height: 20.h,
               ),
               buildTextFormField(
                   Mdi.forgot_password, 'password', false, 'Password', password,
@@ -76,7 +73,7 @@ class _SignUpState extends State<SignUp> {
                   }
               ),
               SizedBox(
-                height: 25.h,
+                height: 20.h,
               ),
               buildTextFormField(Mdi.password_check, 'confirmPassword', false,
                   'Confirm Password', confirmPassword,(value){
@@ -90,7 +87,7 @@ class _SignUpState extends State<SignUp> {
                 style: TextStyle(fontStyle: FontStyle.italic, color: primary900),
               ),
               SizedBox(
-                height: 50.h,
+                height: 25.h,
               ),
               GestureDetector(
                 onTap:  (){
@@ -113,6 +110,49 @@ class _SignUpState extends State<SignUp> {
                         fontWeight: FontWeight.bold, fontSize: 16.sp, color: white),
                   ),
                 ),
+              ),
+              SizedBox(
+                height: 2.h,
+              ),
+              Text('or',style: TextStyle(fontSize:16.sp),),
+              SizedBox(
+                height: 2.h,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  GestureDetector(
+                    onTap:  (){
+                    },
+                    child: Container(
+                      width: 150.w,
+                      height: 50.h,
+                      alignment: Alignment.center,
+                      padding: const EdgeInsets.all(16),
+                      decoration: BoxDecoration(
+                          image:  DecorationImage(
+                            image: AssetImage(
+                                'assets/images/google logo.jpg'),
+                          ),
+                          borderRadius: BorderRadius.circular(10.0)),
+
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap:  (){
+                    },
+                    child: Container(
+                      width: 100.w,
+                      height: 50.h,
+                      alignment: Alignment.center,
+                      padding: const EdgeInsets.all(16),
+                      decoration: BoxDecoration(
+                          image: DecorationImage(image: AssetImage('assets/images/Facebook-logo.png')),
+                          borderRadius: BorderRadius.circular(50.0)),
+
+                    ),
+                  ),
+                ],
               ),
               SizedBox(
                 height: 25.h,

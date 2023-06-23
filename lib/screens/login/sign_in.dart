@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
+import 'package:iconify_flutter/icons/icon_park_outline.dart';
 import 'package:iconify_flutter/icons/la.dart';
 import 'package:iconify_flutter/icons/material_symbols.dart';
 import 'package:iconify_flutter/icons/mdi.dart';
@@ -27,10 +28,9 @@ class _SignInState extends State<SignIn> {
       child: Scaffold(
         backgroundColor: white,
         body: SingleChildScrollView(
-          padding: EdgeInsets.symmetric(vertical: 75.h,horizontal: 16.w),
+          padding: EdgeInsets.symmetric(vertical: 15.h,horizontal: 16.w),
           child: Align(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Iconify(La.sign_in_alt, color: primary900,size: 75,),
                 SizedBox(height: 5.h,),
@@ -89,6 +89,49 @@ class _SignInState extends State<SignIn> {
                       style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16.sp,color: white),
                     ),
                   ),
+                ),
+                SizedBox(
+                  height: 2.h,
+                ),
+                Text('or',style: TextStyle(fontSize:16.sp),),
+                SizedBox(
+                  height: 2.h,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    GestureDetector(
+                      onTap:  (){
+                      },
+                      child: Container(
+                        width: 150.w,
+                        height: 50.h,
+                        alignment: Alignment.center,
+                        padding: const EdgeInsets.all(16),
+                        decoration: BoxDecoration(
+                            image:  DecorationImage(
+                                image: AssetImage(
+                                    'assets/images/google logo.jpg'),
+                            ),
+                            borderRadius: BorderRadius.circular(10.0)),
+
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap:  (){
+                      },
+                      child: Container(
+                        width: 100.w,
+                        height: 50.h,
+                        alignment: Alignment.center,
+                        padding: const EdgeInsets.all(16),
+                        decoration: BoxDecoration(
+                          image: DecorationImage(image: AssetImage('assets/images/Facebook-logo.png')),
+                            borderRadius: BorderRadius.circular(50.0)),
+
+                      ),
+                    ),
+                  ],
                 ),
                 SizedBox(height: 25.h,),
                 Container(

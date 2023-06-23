@@ -21,12 +21,14 @@ class AppDemo extends StatelessWidget {
         builder: (BuildContext context, Widget? child) {
           return  MaterialApp(
             theme: ThemeData(
+              useMaterial3: true,
               appBarTheme: AppBarTheme(
               systemOverlayStyle: SystemUiOverlayStyle(
               statusBarColor: white,
               statusBarIconBrightness: Brightness.dark,
               )
             ),),
+
             title: 'bakeEat',
             debugShowCheckedModeBanner: false,
             onGenerateRoute:AppPages.generateRouteSettings ,

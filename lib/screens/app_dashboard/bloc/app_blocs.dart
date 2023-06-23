@@ -4,10 +4,15 @@ import 'app_events.dart';
 import 'app_state.dart';
 
 class AppBlocs extends Bloc<AppEvents,AppStates>{
-  AppBlocs():super(const AppStates()){
+
+  AppBlocs():super(const AppStates()) {
+
     on<TriggerAppEvent>((event, emit) {
       emit(AppStates(index: event.index));
     });
-  }
 
+    on<TriggerAppBarEvent>((event, emit) {
+      emit(AppStates(index: event.appBarIndex));
+    });
+  }
 }

@@ -62,8 +62,6 @@ class AppPages{
       //check if route name match when navigator is triggered
       var result = routes().where((element) => element.route == settings.name);
       if(result.isNotEmpty){
-        print(result.first.route);
-        print('First log');
         bool deviceFirstOpen = Global.storageService.getDeviceFirstOpen();
         if(result.first.route == AppRoutes.getStarted && deviceFirstOpen){
           bool isLoggedIn = Global.storageService.getIsLoggedIn();
@@ -71,7 +69,6 @@ class AppPages{
             return MaterialPageRoute(builder: (_) => const AppDashboard(),
                 settings: settings);
           }
-
           return MaterialPageRoute(builder: (_) => const SignIn(),
               settings: settings);
         }
@@ -79,7 +76,6 @@ class AppPages{
             settings: settings);
       }
     }
-    print('invalid route is ${settings.name}');
     return MaterialPageRoute(builder: (_) => const SignUp());
     }
   }

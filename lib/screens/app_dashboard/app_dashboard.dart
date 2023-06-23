@@ -9,6 +9,7 @@ import 'package:untitled/screens/app_dashboard/bloc/app_blocs.dart';
 import 'package:untitled/screens/app_dashboard/bloc/app_events.dart';
 import 'package:untitled/screens/app_dashboard/bloc/app_state.dart';
 
+import '../../routes/names.dart';
 import '../../values/colors.dart';
 import '../screen_widgets.dart';
 
@@ -20,13 +21,88 @@ class AppDashboard extends StatefulWidget {
 }
 
 class _AppDashboardState extends State<AppDashboard> {
-  int pageIndex = 0;
+
+  var scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AppBlocs,AppStates>(
       builder: (BuildContext context, state) {
       return SafeArea(
         child: Scaffold(
+          key:  scaffoldKey,
+          drawer:  Drawer(
+            backgroundColor: white,
+            child: ListView(
+              children: [
+                UserAccountsDrawerHeader(
+                  onDetailsPressed: () {},
+                  currentAccountPicture: const CircleAvatar(
+                    foregroundImage: AssetImage('assets/images/1024.png'),
+                  ),
+                  accountName: const Text('Ramish'),
+                  accountEmail: const Text("wil850@yahoo.com"),
+                  decoration: BoxDecoration(color: primary700),
+                ),
+                SizedBox(height: 20.h,),
+                ListTile(
+                  iconColor: black,
+                  leading: Container(
+                      width: 30.w,
+                      height: 30.h,
+                      decoration: BoxDecoration(
+                          color: primary300,
+                          borderRadius: BorderRadius.circular(10)
+                      ),
+                      child: const Icon(Icons.person,)),
+                  title: TextWidget(
+                      text: 'Profile',
+                      color: black,
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.bold),
+                  onTap: () {
+                    Navigator.of(context).pushNamed(AppRoutes.profile);
+                  },
+
+                ),
+                SizedBox(height: 20.h,),
+                ListTile(
+                  iconColor: black,
+                  leading: Container(
+                      width: 30.w,
+                      height: 30.h,
+                      decoration: BoxDecoration(
+                          color: primary300,
+                          borderRadius: BorderRadius.circular(10)
+                      ),
+                      child: const Icon(Icons.settings)),
+                  title: TextWidget(
+                      text: 'Settings',
+                      color: black,
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.bold),
+                  onTap: () {
+                    Navigator.of(context).pushNamed(AppRoutes.settings);
+                  },
+
+                ),
+                SizedBox(height: 20.h,),
+                Divider(
+                  color: grey50,
+                  thickness: 1.0,),
+                Container(
+                    width: 200.w,
+                    height: 250.h,
+                    alignment: Alignment.bottomCenter,
+                    child: TextWidget(text: 'BAYANGI MAN', color: grey50, fontSize:12, fontWeight: FontWeight.bold)
+                )
+
+              ],
+
+            ),
+          ),
+          appBar: buildPageAppBar(state.appBarIndex,  (){
+            scaffoldKey.currentState?.openDrawer();
+          },context),
           backgroundColor: white,
           body: buildPage(state.index),
           bottomNavigationBar: Container(
