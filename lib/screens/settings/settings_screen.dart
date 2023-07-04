@@ -4,6 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/mi.dart';
 import 'package:untitled/global.dart';
+import 'package:untitled/screens/app_dashboard/bloc/app_blocs.dart';
+import 'package:untitled/screens/app_dashboard/bloc/app_events.dart';
 import 'package:untitled/screens/settings/bloc/settings_blocs.dart';
 import 'package:untitled/screens/settings/bloc/settings_states.dart';
 import 'package:untitled/values/constants.dart';
@@ -20,6 +22,13 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
+  void removeUserData(){
+    context.read<AppBlocs>().add(TriggerAppEvent(0));
+
+    Global.storageService.remove(AppConstants.storageUserTokenKey);
+    Global.storageService.remove(AppConstants.storageUserProfileKey);
+    Navigator.of(context).pushNamedAndRemoveUntil(AppRoutes.signIn, (route) => false);
+  }
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -64,10 +73,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                            TextButton(
                                onPressed: (){Navigator.pop(context);},
                                child: Text('No')),
-                           TextButton(onPressed: (){
-                             Global.storageService.remove(AppConstants.storageUserTokenKey);
-                             Navigator.of(context).pushNamedAndRemoveUntil(AppRoutes.signIn,(route)=>false);
-                                  },
+                           TextButton(
+                               onPressed: removeUserData,
                                child: Text('Yes')),
                          ],
                        ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:untitled/global.dart';
 import 'package:untitled/routes/pages.dart';
@@ -20,8 +21,9 @@ class AppDemo extends StatelessWidget {
       child: ScreenUtilInit(
         builder: (BuildContext context, Widget? child) {
           return  MaterialApp(
+            builder: EasyLoading.init(),
             theme: ThemeData(
-              useMaterial3: true,
+              //useMaterial3: true,
               appBarTheme: AppBarTheme(
               systemOverlayStyle: SystemUiOverlayStyle(
               statusBarColor: white,

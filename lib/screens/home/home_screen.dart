@@ -2,19 +2,12 @@ import 'dart:async';
 
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:iconify_flutter/iconify_flutter.dart';
-import 'package:iconify_flutter/icons/material_symbols.dart';
-import 'package:untitled/routes/routes.dart';
 import 'package:untitled/screens/home/bloc/home_screen_blocs.dart';
 import 'package:untitled/screens/home/bloc/home_screen_eventss.dart';
 import 'package:untitled/screens/home/bloc/home_screen_states.dart';
-import 'package:untitled/screens/login/sign_in.dart';
-import 'package:untitled/screens/profile/bloc/profile_bloc.dart';
-import 'package:untitled/screens/profile/bloc/profile_states.dart';
-import 'package:untitled/screens/profile/profile_screen.dart';
+import 'package:untitled/screens/home/home_controller.dart';
 import 'package:untitled/values/colors.dart';
 
 import '../screen_widgets.dart';
@@ -30,9 +23,15 @@ class _HomeScreenState extends State<HomeScreen> {
   PageController pageController = PageController(initialPage: 0);
   int currentIndex = 0;
 
+  late HomeController homeController;
+
   @override
   void initState() {
     super.initState();
+
+    homeController = HomeController(context: context);
+    homeController.init();
+
     Timer.periodic(Duration(seconds: 3), (Timer timer) {
       if (currentIndex < 2) {
         currentIndex++;
@@ -45,6 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
         currentIndex= -1;
       }
     });
+
   }
   @override
   void dispose() {
@@ -67,17 +67,21 @@ class _HomeScreenState extends State<HomeScreen> {
                     children: [
                        TextWidget(
                           text: 'Hello',
-                          color: grey100, fontSize: 24.sp,
+                          color: grey100, fontSize: 20.sp,
                           fontWeight: FontWeight.bold,
                       ),
                       SizedBox(width: 10.w,),
-                      TextWidget(
-                          text: 'Zod',
-                          color: grey300,
-                          letterSpacing: 5,
-                          fontStyle: FontStyle.italic, fontSize: 24.sp,
-                          fontWeight: FontWeight.bold,
-                        ),
+                      Container(
+                        width: 250,
+                        child: TextWidget(
+                            text: '${homeController.userProfile.name}',
+                            color: grey300,
+                            fontSize: 20.sp,
+                            maxLines: 1,
+                            fontWeight: FontWeight.bold,
+                            textOverflow: TextOverflow.ellipsis,
+                          ),
+                      ),
                     ],
                   ),
                 ),

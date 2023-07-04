@@ -1,19 +1,22 @@
 
+import 'package:animated_snack_bar/animated_snack_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/material_symbols.dart';
+import 'package:untitled/screens/feed/feed_screen.dart';
 import 'package:untitled/values/colors.dart';
 
 import 'chat/chat_screen.dart';
+import 'home/home_controller.dart';
 import 'home/home_screen.dart';
 import 'how_to/how_to_screen.dart';
 
 Widget buildPage(int index){
   List<Widget> widget = [
     const HomeScreen(),
-    const Center(child: Text('Feed')),
+    const FeedScreen(),
     const Center(child: Text('Shops')),
     const ChatScreen(),
     const HowToScreen(),
@@ -22,17 +25,29 @@ Widget buildPage(int index){
 }
 
 PreferredSizeWidget buildPageAppBar(int appBarIndex, VoidCallback onTap ,BuildContext context){
-
+  late HomeController homeController;
+  homeController = HomeController(context: context);
+  homeController.init();
   List<PreferredSizeWidget> widget = [
      AppBar(
          backgroundColor: white,
         leading:  GestureDetector(
           onTap: onTap,
           child: Padding(
-            padding: const EdgeInsets.only(left: 16.0),
-            child: CircleAvatar(
-              backgroundImage:AssetImage('assets/images/1024.png'),
+            padding: const EdgeInsets.only(left: 16.0,top: 5,bottom: 5
             ),
+            child: Container(
+              width: 48.w,
+              height: 48.h,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                image: DecorationImage(image: NetworkImage(
+                    'http://192.168.201.167:8000/uploads/images/default.png'
+                ),
+                  fit: BoxFit.fill
+                )
+              )
+            )
           ),
         ),
         elevation: 0,
@@ -371,4 +386,11 @@ final Color textColor;
       ),
     );
   }
+}
+AnimatedSnackBar animatedSnackBar(String message, AnimatedSnackBarType type,
+    ) {
+  return AnimatedSnackBar.material(
+    message,
+    type: type,
+  );
 }

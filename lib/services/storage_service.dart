@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:untitled/entities/user.dart';
 
 import '../values/constants.dart';
 
@@ -23,5 +26,14 @@ class StorageService{
   }
   bool getIsLoggedIn(){
     return _sharedPreferences.getString(AppConstants.storageUserTokenKey) == null?false:true;
+  }
+
+  getUserProfile(){
+    var profileOffline = _sharedPreferences.getString(
+        AppConstants.storageUserProfileKey)??"";
+    if(profileOffline.isNotEmpty){
+      return UserItem.fromJson(jsonDecode(profileOffline));
+    }
+    return UserItem();
   }
 }

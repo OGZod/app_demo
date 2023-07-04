@@ -46,6 +46,8 @@ dependencies:
   awesome_snackbar_content:
   animated_snack_bar:
   shared_preferences:
+  flutter_easyloading: ^3.0.5
+  dio: ^5.2.1+1
 
 dev_dependencies:
   flutter_test:

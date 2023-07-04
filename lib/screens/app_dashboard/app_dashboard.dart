@@ -8,9 +8,11 @@ import 'package:iconify_flutter/icons/material_symbols.dart';
 import 'package:untitled/screens/app_dashboard/bloc/app_blocs.dart';
 import 'package:untitled/screens/app_dashboard/bloc/app_events.dart';
 import 'package:untitled/screens/app_dashboard/bloc/app_state.dart';
+import 'package:untitled/values/constants.dart';
 
 import '../../routes/names.dart';
 import '../../values/colors.dart';
+import '../home/home_controller.dart';
 import '../screen_widgets.dart';
 
 class AppDashboard extends StatefulWidget {
@@ -22,6 +24,15 @@ class AppDashboard extends StatefulWidget {
 
 class _AppDashboardState extends State<AppDashboard> {
 
+  late HomeController homeController;
+
+  @override
+  void initState() {
+    super.initState();
+    homeController = HomeController(context: context);
+    homeController.init();
+  }
+
   var scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
@@ -31,17 +42,27 @@ class _AppDashboardState extends State<AppDashboard> {
         top: false,
         child: Scaffold(
           key:  scaffoldKey,
+          backgroundColor: white,
           drawer:  Drawer(
             backgroundColor: white,
             child: ListView(
               children: [
                 UserAccountsDrawerHeader(
                   onDetailsPressed: () {},
-                  currentAccountPicture: const CircleAvatar(
-                    foregroundImage: AssetImage('assets/images/1024.png'),
+                  currentAccountPicture:  Container(
+                      width: 48.w,
+                      height: 48.h,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(48),
+                          image: DecorationImage(image: NetworkImage(
+                              'http://192.168.201.167:8000/uploads/images/default.png'
+                          ),
+                              fit: BoxFit.fill
+                          )
+                      )
                   ),
-                  accountName: const Text('Ramish'),
-                  accountEmail: const Text("wil850@yahoo.com"),
+                  accountName:  Text('${homeController.userProfile.name}'),
+                  accountEmail: Text("${homeController.userProfile.email}"),
                   decoration: BoxDecoration(color: primary700),
                 ),
                 SizedBox(height: 20.h,),
@@ -104,7 +125,6 @@ class _AppDashboardState extends State<AppDashboard> {
           appBar: buildPageAppBar(state.appBarIndex,  (){
             scaffoldKey.currentState?.openDrawer();
           },context),
-          backgroundColor: white,
           body: buildPage(state.index),
           bottomNavigationBar: Container(
             width: 392.w,
